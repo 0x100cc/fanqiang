@@ -315,7 +315,7 @@ Mac 使用V2rayU
 
 ![avatar](./img/v2rayU+nginx+ws+tls.jpg)
 
-Androi配置
+Android配置
 
 下载安装BifrostV(已上传)
 

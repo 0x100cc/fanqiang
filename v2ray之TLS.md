@@ -131,7 +131,7 @@ Hostname 中输入你的域名，点提交，过一会结果就出来了。
 
 ![avatar](./img/SwitchyOmega.jpg)
 
-## 6.Androi配置
+## 6.Android配置
 下载安装BifrostV(已上传)
 
 BifrostV_v0.6.8_apkpure.com .apk
