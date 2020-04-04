@@ -117,15 +117,18 @@ Hostname 中输入你的域名，点提交，过一会结果就出来了。
 使用的是[V2rayU](https://github.com/yanue/V2rayU/releases)(第三方开发)
 
 正常安装程序,点击应用程序中的 V2RayU 图标:勾选 pac 模式、点击服务器设置
+
 ![avatar](./img/v2rayU.png)
 
 配置
-![avatar](./img/v2rayU+vmess+tcp.jpg)
+
+![avatar](./img/v2rayU+tls.jpg)
 
 ## 5.Mac Chrome配置
 安装 SwitchyOmega 插件, chrome插件安装请自行百度，安装包已上传
 
 配置如下
+
 ![avatar](./img/SwitchyOmega.jpg)
 
 ## 6.Androi配置
