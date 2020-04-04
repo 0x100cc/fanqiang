@@ -35,7 +35,8 @@
 
 `service v2ray restart | force-reload |start|stop|status|reload`
 
-修改配置文件(可参考mkcp+dynamicport目录下的json,后续还会继续更新)
+修改配置文件
+
 `sudo nano /etc/v2ray/config.json`
 
 服务器端配置如下

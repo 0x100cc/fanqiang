@@ -103,8 +103,17 @@ V2Ray v3.15 (die Commanderin) 20180329
 An unified platform for anti-censorship.
 Configuration OK.
 ```
+## 3.验证
 
-## 3.Mac端配置
+一般来说，按照以上步骤操作完成，V2Ray 客户端能够正常联网说明 TLS 已经成功启用。但要是有个可靠的方法来验证是否正常开启 TLS 无疑更令人放心。
+验证的方法有很多，我仅介绍一种小白化一点的，便是 [Qualys SSL Labs's SSL Server Test](https://www.ssllabs.com/ssltest/index.html)。
+
+**注意：使用 Qualys SSL Labs's SSL Server Test 要求使用 443 端口，意味着你服务器配置的 inbound.port 应当是 443**
+
+打开 [Qualys SSL Labs's SSL Server Test](https://www.ssllabs.com/ssltest/index.html)，在
+Hostname 中输入你的域名，点提交，过一会结果就出来了。
+
+## 4.Mac端配置
 使用的是[V2rayU](https://github.com/yanue/V2rayU/releases)(第三方开发)
 
 正常安装程序,点击应用程序中的 V2RayU 图标:勾选 pac 模式、点击服务器设置
@@ -113,13 +122,13 @@ Configuration OK.
 配置
 ![avatar](./img/v2rayU+vmess+tcp.jpg)
 
-## 4.Mac Chrome配置
+## 5.Mac Chrome配置
 安装 SwitchyOmega 插件, chrome插件安装请自行百度，安装包已上传
 
 配置如下
 ![avatar](./img/SwitchyOmega.jpg)
 
-## 5.Androi配置
+## 6.Androi配置
 下载安装BifrostV(已上传)
 
 BifrostV_v0.6.8_apkpure.com .apk

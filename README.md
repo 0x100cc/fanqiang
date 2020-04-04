@@ -11,7 +11,7 @@ V2Ray 是一个与 Shadowsocks 类似的代理软件，可以用来科学上网�
 
 方案如下
 * [v2ray最简单方案](v2ray最简方案.md)
-
+* [v2ray之TLS](v2ray之TLS.md)
 * [v2ray之VPS的IP被封WebSockets(ws)+TLS+Nginx+Cloudflare](v2ray之VPS的IP被封WebSockets(ws)+TLS+Nginx+Cloudflare.md)
 
 ## 参考链接

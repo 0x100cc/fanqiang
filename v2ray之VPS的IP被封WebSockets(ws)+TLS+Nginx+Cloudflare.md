@@ -42,12 +42,12 @@ CloudFlare 是一家全球知名的 CDN 服务商，并且提供了免费的 CDN
 修改DNS域名解析服务器后, 按之前的解析记录，添加到CloudFlare里即可,橘色云朵代表流量通过 CloudFlare 的 CDN，灰色云朵代表不通过 CDN，点击一下云朵即可切换。
 ![avatar](./img/cloudflare3.png)
 ### 3.6模式一定要改为Full
-![avatar](./img/cloudflare4.png)
+![avatar](./img/cloudflare4.jpg)
 
 ## 4.ssh登陆服务器
 如果服务器被封无法ssh，可以通过代理去ssh登陆
 
-`ssh -o ProxyCommand="nc -X 5 -x 代理地址:代理端口 %h %p" user@server`
+`ssh -o ProxyCommand="nc -X 5 -x 127.0.0.1:1080 %h %p" user@server`
 
 ## 5.证书生成
 
@@ -322,98 +322,3 @@ Androi配置
 BifrostV_v0.6.8_apkpure.com .apk
 
 按照提示填写配置即可
-```
-{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",    
-      "settings": {
-        "clients": [
-          {
-            "id": "ae6bb8de-3061-4014-8986-1f566c5ddbea1",  
-            "alterId": 64,
-            "level": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "tls", // security 要设置为 tls 才会启用 TLS
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/etc/v2ray/v2ray.crt", // 证书文件
-              "keyFile": "/etc/v2ray/v2ray.key" // 密钥文件
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
-}
-```
-
-重启v2ray
-```
-service v2ray restart
-```
-
-### 客户端
-
-```
-{
-  "inbounds": [
-    {
-      "port": 1080,
-      "protocol": "socks",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
-      "settings": {
-        "auth": "noauth"
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "vmess",
-      "settings": {
-        "vnext": [
-          {
-            "address": "vpn.test.xyz", // tls 需要域名，所以这里应该填自己的域名。如果前面配置了子域名，可以使用其中一个子域名，子域名被封可换另一个子域名
-            "port": 443,
-            "users": [
-              {
-                "id": "ae6bb8de-3061-4014-8986-1f566c5ddbea1",
-                "alterId": 64
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls" // 客户端的 security 也要设置为 tls
-      }
-    }
-  ]
-}
-```
-
-## 验证
-
-一般来说，按照以上步骤操作完成，V2Ray 客户端能够正常联网说明 TLS 已经成功启用。但要是有个可靠的方法来验证是否正常开启 TLS 无疑更令人放心。
-验证的方法有很多，我仅介绍一种小白化一点的，便是 [Qualys SSL Labs's SSL Server Test](https://www.ssllabs.com/ssltest/index.html)。
-
-**注意：使用 Qualys SSL Labs's SSL Server Test 要求使用 443 端口，意味着你服务器配置的 inbound.port 应当是 443**
-
-打开 [Qualys SSL Labs's SSL Server Test](https://www.ssllabs.com/ssltest/index.html)，在
-Hostname 中输入你的域名，点提交，过一会结果就出来了。
